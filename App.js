@@ -23,6 +23,7 @@ class App extends React.Component {
     })
   }
   render(){
+    console.log(this.state.rides)
     return (
       <div className="wrapper">
         <Header />

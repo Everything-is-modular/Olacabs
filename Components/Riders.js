@@ -4,8 +4,10 @@ import auto from '../Assets/rickshaw.svg'
 import cancelled from '../Assets/Cancelled.jpeg'
 import moment from 'moment'
 
+
+
 let Riders = (props)=>{
-    console.log(props.data)
+    console.log(props.data.destination)
     return(
        
         <div className='ride-wrapper'>
@@ -19,7 +21,7 @@ let Riders = (props)=>{
             
             <div className="location-info">
                     <p className="source">{props.data.source}</p>
-                    <p className="destination">{props.data.destination}</p>
+                    <p className="destination">{props.data.destnation}</p>
             </div>
             
         </div>
