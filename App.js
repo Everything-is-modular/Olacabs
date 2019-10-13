@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header'
 import Riders from './Components/Riders'
 class App extends React.Component {
+  
   constructor() {
     super()
     this.state={
@@ -10,12 +11,14 @@ class App extends React.Component {
     }
   }
   componentDidMount(){
-    fetch("https://my-json-server.typicode.com/Everything-is-modular/Ola/db").then((resp) =>{
-      resp.json()
+    fetch("https://my-json-server.typicode.com/Everything-is-modular/Ola/db")
+    .then((resp) =>{
+      return resp.json()
     })
-    .then((rides)=>{
+    .then((response)=>{
+      console.log("this is rides",response)
         this.setState({
-          rides
+          rides:response.rides
         })
     })
   }
@@ -24,7 +27,7 @@ class App extends React.Component {
       <div className="wrapper">
         <Header />
         {
-          rides.map((ride,index) => {
+          this.state.rides.map((ride,index) => {
             return (
               <Riders data={ride} key={`${index}`} />
             );
